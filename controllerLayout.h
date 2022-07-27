@@ -326,7 +326,7 @@ struct switch_control {
 };
 
 public:
-controllerSetup;
+controllerLayout;
 void switchSetup (void);
 bool read_switch (uint8_t sw);
 bool read_toggle_switch (uint8_t sw);
