@@ -2,6 +2,8 @@
   controllerLayout.h - Library to define button inputs for custom contoller layouts and button reading
   Author: Matt Norman
 
+  MIT License
+
   Copyright (c) 2022 Matt Norman
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
