@@ -326,11 +326,12 @@ struct switch_control {
 };
 
 public:
-contollerSetup;
+controllerSetup;
 void switchSetup (void);
 bool read_switch (uint8_t sw);
 bool read_toggle_switch (uint8_t sw);
 bool read_button_switch (uint8_t);
+uint16_t pollSwitches();
 
 };
 #endif

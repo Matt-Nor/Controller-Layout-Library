@@ -36,7 +36,7 @@ controllerLayout::controllerLayout (){
  *  initalize buttons
  */
 
-void contollerLayout::switchSetup(void){
+void controllerLayout::switchSetup(void){
 for (int sw = 0; sw < num_switches; sw++) {
     // Define the switch circuit type - circuit_type is:
     // circuit_C1 (INPUT) or circuit_C2 (INPUT_PULLUP)
@@ -116,4 +116,15 @@ int switch_pin_reading;
   }
 
   return !switched;
+}
+
+uint16_t controllerLayout::pollSwitches(){
+uint16_t msg = 0;
+
+  for (int sw = 0; sw < num_switches; sw++) {
+    if (read_switch(sw) == switched) {
+      msg = ((uint16_t)switches[0].switch_status << 8) | ((uint8_t)switches[sw].switch_pin);
+    }
+  }
+  return msg;
 }
