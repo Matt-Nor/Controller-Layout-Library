@@ -30,6 +30,7 @@
 
 #include "Arduino.h"
 
+
 // Define circuit type used for switch
 #define circuit_C1 INPUT         // switch circuit requires an external pull down 10k ohm resistor
 #define circuit_C2 INPUT_PULLUP  // switch type reqires no other components beyond the button switch
@@ -327,6 +328,8 @@ struct switch_control {
   not_used,
 };
 
+#if defined(ARDUINO_AVR_MEGA2560)
+
 public:
 controllerLayout(void);
 void switchSetup (void);
@@ -334,6 +337,13 @@ bool read_switch (uint8_t sw);
 bool read_toggle_switch (uint8_t sw);
 bool read_button_switch (uint8_t);
 uint16_t pollSwitches();
+
+#elif defined(ARDUINO_TEENSY41)
+//ignore cpp file 
+
+#else
+//board hasn't been considered
+#endif
 
 };
 #endif
